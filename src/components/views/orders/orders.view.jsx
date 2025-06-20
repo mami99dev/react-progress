@@ -2,12 +2,10 @@ import './orders.css'
 
 const OrdersView = (props) => {
   return (
-    <>
-      <h1>Orders</h1>
-      <p className="read-the-docs">
-        Bienvenidos a la vista de los pedidos
-      </p>
-    </>
+    <div className="orders-view">
+      <h1>Órdenes</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    </div>
   )
 }
 

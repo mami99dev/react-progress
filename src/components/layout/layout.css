@@ -1,0 +1,21 @@
+.main-content {
+  margin-left: 220px;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  width: calc(100vw - 235px);
+  align-items: start;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 64px;
+  /* espacio para el header fijo */
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: visible;
+}
