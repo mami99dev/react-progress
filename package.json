@@ -10,6 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@progress/kendo-data-query": "^1.7.1",
+    "@progress/kendo-react-buttons": "^11.1.0",
+    "@progress/kendo-react-dialogs": "^11.1.0",
+    "@progress/kendo-react-grid": "^11.1.0",
+    "@progress/kendo-react-inputs": "^11.1.0",
+    "@progress/kendo-theme-default": "^11.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.6.2",

@@ -3,15 +3,15 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
-  width: calc(100vw - 235px);
+  width: calc(100vw - 220px);
   align-items: start;
 }
 
 .content {
   flex: 1;
   display: flex;
-  justify-content: space-around;
-  padding-top: 64px;
+  /* justify-content: space-around; */
+  padding-top: 60px;
   /* espacio para el header fijo */
   box-sizing: border-box;
   width: 100%;
