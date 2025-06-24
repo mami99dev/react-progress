@@ -40,6 +40,11 @@
   /* Opcional */
 }
 
+.toolbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
 /* Buttons toolbar */
 .toolbar-actions .k-button {
   padding: 8px 12px;
@@ -60,7 +65,7 @@
 }
 
 .grid-wrapper {
-  overflow-x: auto;
+  overflow-x: hidden;
   width: 100%;
 }
 
@@ -76,7 +81,7 @@
 
 .search-box .k-icon {
   margin-right: 8px;
-  color: #000000;
+  color: #80ACF4;
 }
 
 .search-box .k-input {
@@ -85,4 +90,31 @@
   color: #000000;
   outline: none;
   width: 100%;
+}
+
+.search-box .k-input::placeholder {
+  color: #80ACF4;
+}
+
+.k-pager {
+  background-color: #D2E2FB;
+}
+
+
+/* Botones de navegación del pager */
+.k-pager .k-button {
+  color: #206EEC;
+}
+
+.k-pager .k-button:hover {
+  background-color: #bebebe;
+}
+
+.k-pager-sizes .k-dropdownlist.k-picker .k-input-button {
+  background-color: #f5f5f5 !important;
+  color: #000000;
+}
+
+.k-pager-sizes .k-dropdownlist.k-picker .k-input-button:hover {
+  background-color: #bebebe !important;
 }

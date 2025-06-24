@@ -1,21 +1,120 @@
+@import "@progress/kendo-theme-default/dist/all.css";
+
 .orders-view {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  height: 100%;
-  padding-top: 20px;
-}
-
-.orders-view>* {
   width: 100%;
+  max-width: 100%;
+  padding: 20px 35px 0 27px;
+  overflow-x: hidden;
 }
 
-.orders-view h1 {
+/* Header */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.header-row h1 {
   font-size: 24px;
   font-weight: 600;
   color: #2D3748;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding: 20px 20px 20px 27px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Toolbar */
+.k-toolbar {
+  background-color: transparent;
+  padding: 0;
+}
+
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  /* Los hijos se van a los extremos */
+  align-items: center;
+  /* Centrado vertical */
+  width: 100%;
+  padding: 20px 0px;
+  /* Opcional */
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Buttons toolbar */
+.toolbar-actions .k-button {
+  padding: 8px 12px;
+}
+
+.toolbar-actions .k-button .button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Tamaño del ícono */
+.toolbar-actions .k-button .button-content img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.grid-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Búsqueda dentro del toolbar */
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #EDF2F7;
+  border-radius: 4px;
+  padding: 4px 8px;
+  width: 200px;
+}
+
+.search-box .k-icon {
+  margin-right: 8px;
+  color: #80ACF4;
+}
+
+.search-box .k-input {
+  border: none;
+  background: transparent;
+  color: #000000;
+  outline: none;
+  width: 100%;
+}
+
+.search-box .k-input::placeholder {
+  color: #80ACF4;
+}
+
+.k-pager {
+  background-color: #D2E2FB;
+}
+
+
+/* Botones de navegación del pager */
+.k-pager .k-button {
+  color: #206EEC;
+}
+
+.k-pager .k-button:hover {
+  background-color: #bebebe;
+}
+
+.k-pager-sizes .k-dropdownlist.k-picker .k-input-button {
+  background-color: #f5f5f5 !important;
+  color: #000000;
+}
+
+.k-pager-sizes .k-dropdownlist.k-picker .k-input-button:hover {
+  background-color: #bebebe !important;
 }

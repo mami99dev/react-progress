@@ -1,6 +1,6 @@
-import { MainAction, CustomersAction, OrdersAction } from './components/actions'
+import { MainAction, CustomersAction, OrdersAction } from '../components/actions'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Layout } from './components/layout'
+import { Layout } from '../components/layout'
 
 const Router = () => {
   return (

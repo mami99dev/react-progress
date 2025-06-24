@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Grid, GridColumn, GridToolbar } from '@progress/kendo-react-grid';
 import { Button } from '@progress/kendo-react-buttons';
 import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs';
@@ -9,242 +8,22 @@ import deleteIcon from './../../../assets/delete.svg'
 import filterIcon from './../../../assets/filter.svg'
 import './customers.css';
 
-const initialCustomers = [
-  {
-    CustNum: 1,
-    Country: 'México',
-    Name: 'Comercial Mexicana',
-    Address: 'Av. Insurgentes 123',
-    Address2: '',
-    City: 'CDMX',
-    State: 'CDMX',
-    PostalCode: '01000',
-    Contact: 'Juan Pérez',
-    Phone: '555-1234',
-    SalesRep: 'SR01',
-    CreditLimit: 100000,
-    Balance: 25000.50,
-    Terms: 'Contado',
-    Discount: 10,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'contacto@comercial.mx',
-  },
-  {
-    CustNum: 2,
-    Country: 'Colombia',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 3,
-    Country: 'México',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 4,
-    Country: 'Argentina',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 5,
-    Country: 'Chile',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 6,
-    Country: 'Ecuador',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 7,
-    Country: 'Brasil',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 8,
-    Country: 'Canadá',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 9,
-    Country: 'USA',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 10,
-    Country: 'Uruguay',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-  {
-    CustNum: 11,
-    Country: 'Bolivia',
-    Name: 'Distribuciones Andinas',
-    Address: 'Cra 45 #67-89',
-    Address2: '',
-    City: 'Bogotá',
-    State: 'Cundinamarca',
-    PostalCode: '110111',
-    Contact: 'María Gómez',
-    Phone: '601-555-6789',
-    SalesRep: 'SR02',
-    CreditLimit: 50000,
-    Balance: 12000.00,
-    Terms: '30 días',
-    Discount: 5,
-    Comments: '',
-    Fax: '',
-    EmailAddress: 'ventas@andinas.co',
-  },
-];
-
-const CustomersView = () => {
-  const [customers, setCustomers] = useState(initialCustomers);
-  const [showAddEdit, setShowAddEdit] = useState(false);
-  const [showFilter, setShowFilter] = useState(false);
-  const [editingCustomer, setEditingCustomer] = useState(null);
-  const [page, setPage] = useState({ skip: 0, take: 5 });
-
-  const paginatedData = customers.slice(page.skip, page.skip + page.take);
-
-  const handleAdd = () => {
-    setEditingCustomer(null);
-    setShowAddEdit(true);
-  };
+const CustomersView = (props) => {
+  const {
+    page,
+    setPage,
+    showAddEdit,
+    setShowAddEdit,
+    showFilter,
+    setShowFilter,
+    handleAdd,
+    handleSearchClick,
+    handleInputKeyDown,
+    searchTerm,
+    setSearchTerm,
+    paginatedFiltered,
+    filteredCustomers,
+  } = props;
 
   return (
     <div className="customers-view">
@@ -255,8 +34,15 @@ const CustomersView = () => {
       <GridToolbar>
         <div className="toolbar-container">
           <div className="search-box">
-            <img src={searchIcon} className="k-icon k-i-search" />
-            <input type="text" placeholder="Buscar" className="k-input" />
+            <img src={searchIcon} className="k-icon k-i-search" style={{ cursor: 'pointer' }} onClick={handleSearchClick} />
+            <input
+              type="text"
+              placeholder="Buscar"
+              className="k-input"
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              onKeyDown={handleInputKeyDown}
+            />
           </div>
           <div className="toolbar-actions">
             <Button type="button" onClick={handleAdd}>
@@ -289,32 +75,31 @@ const CustomersView = () => {
 
       <div className="grid-wrapper">
         <Grid
-          style={{ height: '410px', width: '100%' }}
-          data={paginatedData}
+          style={{ height: '320px', width: '100%' }}
+          data={paginatedFiltered}
           skip={page.skip}
           take={page.take}
-          total={customers.length}
+          total={filteredCustomers.length}
           onPageChange={(e) => setPage(e.page)}
           pageable={{ buttonCount: 5, pageSizes: true, info: true }}
           sortable
           resizable
           scrollable="scrollable"
           autoGenerateColumns={false}
-          tableLayout="auto"
+          tableLayout="fixed"
         >
 
           {/* Columnas hasta EmailAddress */}
-          <GridColumn field="CustNum" title="ID" />
-          <GridColumn field="Name" title="Nombre" />
-          <GridColumn field="City" title="Ciudad" />
-          <GridColumn field="State" title="Estado" />
-          <GridColumn field="Phone" title="Teléfono" />
-          <GridColumn field="EmailAddress" title="Correo" />
+          <GridColumn field="CustNum" title="ID" width='120px' />
+          <GridColumn field="Name" title="Nombre" width='250px' />
+          <GridColumn field="City" title="Ciudad" width='170px' />
+          <GridColumn field="State" title="Estado" width='170px' />
+          <GridColumn field="SalesRep" title="Representante de ventas" />
         </Grid>
       </div>
 
       {showAddEdit && (
-        <Dialog title="Formulario de Cliente" onClose={() => setShowAddEdit(false)}>
+        <Dialog title="Agregar un cliente" onClose={() => setShowAddEdit(false)}>
           <div style={{ minWidth: 400 }}>
             <p>Formulario de cliente (pendiente de implementación)</p>
           </div>
@@ -328,7 +113,7 @@ const CustomersView = () => {
       {showFilter && (
         <Dialog title="Filtrar Clientes" onClose={() => setShowFilter(false)}>
           <div style={{ minWidth: 300 }}>
-            <p>Formulario de filtro (pendiente de implementación)</p>
+            <p>Formulario de filtro...</p>
           </div>
           <DialogActionsBar>
             <Button onClick={() => setShowFilter(false)}>Cancelar</Button>
