@@ -83,8 +83,9 @@ const OrdersView = (props) => {
           total={filteredOrders.length}
           onPageChange={(e) => setPage(e.page)}
           pageable={{ buttonCount: 5, pageSizes: true, info: true }}
-          sortable
-          resizable
+          sortable={true}
+          resizable={true}
+          filterable={false}
           scrollable="scrollable"
           autoGenerateColumns={false}
           tableLayout="fixed"

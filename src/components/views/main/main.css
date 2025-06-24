@@ -1,21 +1,156 @@
+@import "@progress/kendo-theme-default/dist/all.css";
+
 .main-view {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px 35px 0 27px;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
-  padding-top: 20px;
+  background: #fff;
+}
+
+/* Header */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.header-row h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2D3748;
+  padding: 0;
+  margin: 0;
+}
+
+.gauge-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .main-view>* {
   width: 100%;
 }
 
-.main-view h1 {
+.welcome-title {
   font-size: 24px;
-  font-weight: 600;
-  color: #2D3748;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding: 20px 20px 20px 27px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 24px 0;
+  padding: 0;
+  letter-spacing: -0.5px;
 }
+
+.gauge-label-top {
+  /* Nueva clase para los labels encima de los gauges */
+  font-size: 16px;
+  /* Ajustado el tamaño de la fuente */
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 12px;
+  /* Más espacio entre el label y el gauge */
+  text-align: center;
+}
+
+.gauge-center-text {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #3366FF;
+  letter-spacing: -1px;
+}
+
+.k-arcgauge .k-arc {
+  stroke: #3366FF !important;
+}
+
+.k-arcgauge .k-arcgauge-label {
+  fill: #3366FF !important;
+  font-weight: 700;
+}
+
+.k-arcgauge .k-arcgauge-track {
+  stroke: #E5E7EB !important;
+}
+
+.chart-title {
+  /* Clase específica para el título del gráfico */
+  font-size: 18px;
+  /* Ajustado para que coincida más con la imagen */
+  font-weight: 600;
+  margin-bottom: 20px;
+  /* Ajuste del margen inferior */
+}
+
+.k-chart .k-legend {
+  font-size: 14px;
+  font-weight: 500;
+  /* Posicionamiento más preciso de la leyenda */
+  position: absolute;
+  /* Usar posicionamiento absoluto dentro del SVG del gráfico */
+  top: 10px;
+  /* Ajustar según sea necesario */
+  right: 10px;
+  /* Ajustar según sea necesario */
+  background-color: white;
+  /* Para darle un fondo y que no se superponga transparentemente */
+  padding: 5px 10px;
+  /* Espaciado dentro de la leyenda */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* Sombra ligera */
+  z-index: 10;
+  /* Asegurarse de que esté por encima de las líneas */
+}
+
+/* Kendo Charts puede tener un div envolvente con la clase k-chart-pane o similar que contiene tanto el área de plot como la leyenda.
+   Es posible que necesites inspeccionar el DOM para encontrar el selector exacto.
+   A menudo, la leyenda se renderiza como un elemento SVG <g> o un <div> con una clase específica. */
+
+.k-chart .k-axis-label {
+  font-size: 13px;
+  color: #222;
+}
+
+.k-chart .k-title {
+  /* Esta clase podría no ser necesaria si usamos chart-title */
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+.k-chart {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  padding: 12px;
+  /* Un padding uniforme puede funcionar mejor */
+  position: relative;
+  /* Necesario para que la leyenda con position: absolute funcione dentro */
+}
+
+/* Remover esto ya que interfería con el renderizado de la leyenda dentro del SVG */
+/*
+.k-chart .k-chart-pane {
+  display: flex;
+  flex-direction: row;
+}
+
+.k-chart .k-chart-pane > div:first-child {
+  flex-grow: 1;
+}
+*/

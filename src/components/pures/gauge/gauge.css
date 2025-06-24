@@ -1,0 +1,17 @@
+@import "@progress/kendo-theme-default/dist/all.css";
+
+.main-view .k-arcgauge .k-arc {
+  stroke: #3366FF !important;
+}
+
+.gauge-center-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3366FF;
+  pointer-events: none;
+}
